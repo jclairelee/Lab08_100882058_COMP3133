@@ -1,0 +1,21 @@
+<h2>My Heroes</h2>
+
+<p style="color: gray; font-size: 14px">
+  Type a name and click outside the textbox → it will convert to UPPERCASE
+</p>
+
+<input type="text" inputFormat placeholder="Enter hero name" />
+
+<ul>
+  <li
+    *ngFor="let hero of heroes"
+    (click)="selectHero(hero)"
+    [class.selected]="hero === selectedHero"
+  >
+    {{ hero.name | removeSpaces }}
+  </li>
+</ul>
+
+<div *ngIf="selectedHero">
+  <h3>{{ selectedHero.name | removeSpaces }}</h3>
+</div>
